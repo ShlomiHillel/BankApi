@@ -31,10 +31,11 @@ const findUser=(id)=>{
 // add user--------------------------------------------------------------
 const addUser = (req, res) => {
      const  id = req.body.id;
+     console.log('dd');
     //  const  {id} = req.body;
 
     const user = { 
-        id: +id,
+        id: Number(id),
         cash: 0, 
         credit: 0,
     }

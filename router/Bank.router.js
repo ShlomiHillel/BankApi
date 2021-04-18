@@ -5,7 +5,9 @@ const Controller = require('../controllers/bank.Controllers')
 
 router.post('/addUser', (req, res) => {
     Controller.addUser(req, res);    
-}).put('/deposit/:id', (req, res) => {
+})
+
+router.put('/deposit/:id', (req, res) => {
     Controller.deposit(req, res);    
 })
 

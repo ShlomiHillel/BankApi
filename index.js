@@ -8,7 +8,7 @@ const bankRoute=require('./router/Bank.router')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+//middleware
 app.use('/api',bankRoute)
 
 
