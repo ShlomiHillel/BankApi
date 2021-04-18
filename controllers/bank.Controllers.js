@@ -1,27 +1,25 @@
 
+const path = require('path');
+const fs = require('fs');
 
 
 
-// const fs = require('fs');
-// const DB = require('../BankDB.json')
-
-
-const DB = [{ 
-    id : 10,
-    cash : 0, 
-    credit : 0,
-},
-{ 
-    id : 11,
-    cash : 66, 
-    credit : 0,
-}
-]
+// const DB = [{ 
+//     id : 10,
+//     cash : 0, 
+//     credit : 0,
+// },
+// { 
+//     id : 11,
+//     cash : 66, 
+//     credit : 0,
+// }
+// ]
 
 const findUser=(id)=>{
     i = DB.map(el => el.id ).indexOf(id)
        
-    // const user = DB.find((user) => user.id === +id).indexOf(id);
+    // const user = DB.find((user) => user.id === id).indexOf(id);
     // return user
     return i
 }
@@ -31,23 +29,38 @@ const findUser=(id)=>{
 // add user--------------------------------------------------------------
 const addUser = (req, res) => {
      const  id = req.body.id;
-     console.log('dd');
+    //  console.log(req.body);
     //  const  {id} = req.body;
-
+    let jData;
     const user = { 
-        id: Number(id),
+        id: id,
         cash: 0, 
         credit: 0,
     }
+    const filePath=path.join(__dirname,'/users.json')
+    
+    fs.readFile(filePath, (err, data) => {
+        if (err){
+            console.log(err);
+            return
+        }else{
+           jData = JSON.parse(data)
+        console.log( jData ); 
+        }
+        
+        
+        
+        
+        // data.push(user)
+        // fs.writeFile('BankDB.json', JSON.stringify(data), err => console.log(err))
+        return res.send({"data":123});
+     })
 
-    DB.push(user);
-    return res.send(user);
+
+    
+    
 }
-    // fs.readFile('BankDB.json', (error, data) => {
-    //     data = JSON.parse(data)
-    //     data.push(user)
-    //     fs.writeFile('BankDB.json', JSON.stringify(data), err => console.log(err))
-    // })
+     
 
 
 
