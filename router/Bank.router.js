@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const Controller = require('../controllers/bank.Controllers')
 
 
-
-
-router.get('/', (req, res) => {return res.status(200).json({users: 'hello'})}).post
+router.post('/addUser', (req, res) => {
+    Controller.addUser(req, res);    
+}).put('/deposit/:id', (req, res) => {
+    Controller.deposit(req, res);    
+})
 
 
 module.exports= router;
