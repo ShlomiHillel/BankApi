@@ -1,6 +1,6 @@
 | Action                        | Method | Link                                              |
 | ----------------------------- | ------ | ------------------------------------------------- |
-| Create new user               | POST   | /api/newuser/:ID                          |
+| Create new user               | POST   | /api/newUser/                          |
 | Deposit cash in user          | PUT    | /api/deposit/:ID/:cash                    |
 | Update credit in user         | PUT    | /api/credit/:ID/:credit                   |
 | Transfer cash  users          | PUT    | /api/transfer/:fromID/:cash/:toID |
